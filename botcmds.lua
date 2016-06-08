@@ -105,22 +105,22 @@ irc:register_bot_command("list", {
 })
 
 
-irc:register_bot_command("whereis", {
-	params = "<player>",
-	description = "Tell the location of <player>",
-	func = function(user, args)
-		if args == "" then
-			return false, "Player name required."
-		end
-		local player = minetest.get_player_by_name(args)
-		if not player then
-			return false, "There is no player named '"..args.."'"
-		end
-		local fmt = "Player %s is at (%.2f,%.2f,%.2f)"
-		local pos = player:getpos()
-		return true, fmt:format(args, pos.x, pos.y, pos.z)
-	end
-})
+--irc:register_bot_command("whereis", {
+--	params = "<player>",
+--	description = "Tell the location of <player>",
+--	func = function(user, args)
+--		if args == "" then
+--			return false, "Player name required."
+--		end
+--		local player = minetest.get_player_by_name(args)
+--		if not player then
+--			return false, "There is no player named '"..args.."'"
+--		end
+--		local fmt = "Player %s is at (%.2f,%.2f,%.2f)"
+--		local pos = player:getpos()
+--		return true, fmt:format(args, pos.x, pos.y, pos.z)
+--	end
+--})
 
 
 local starttime = os.time()
@@ -149,6 +149,7 @@ irc:register_bot_command("players", {
 		end
 		return true, "Connected players: "
 				..table.concat(names, ", ")
+				.." - You can also see the full list of players on our web site: https://minetest.tv"
 	end
 })
 
