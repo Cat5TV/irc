@@ -149,7 +149,7 @@ irc:register_bot_command("players", {
 		end
 		return true, "Connected players: "
 				..table.concat(names, ", ")
-				.." - You can also see the full list of players on our web site: https://minetest.tv"
+				..". You can also see the full list of players on our web site: https://minetest.tv"
 	end
 })
 
