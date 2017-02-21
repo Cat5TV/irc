@@ -5,7 +5,7 @@
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	if irc.connected and irc.config.send_join_part then
-		irc:say(name.." connected.")
+		irc:say("[Server Notice] "..name.." connected.")
 	end
 end)
 
@@ -13,7 +13,7 @@ end)
 minetest.register_on_leaveplayer(function(player)
 	local name = player:get_player_name()
 	if irc.connected and irc.config.send_join_part then
-		irc:say(name.." disconnected")
+		irc:say("[Server Notice] "..name.." disconnected")
 	end
 end)
 
@@ -35,6 +35,6 @@ end)
 
 
 minetest.register_on_shutdown(function()
-	irc:disconnect("TPS_Server: Maintenance.")
+	irc:disconnect("[Server Notice] Safely Shutting Down.")
 end)
 
