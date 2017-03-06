@@ -5,7 +5,7 @@
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	if irc.connected and irc.config.send_join_part then
-		irc:say("<TPS_Server> "..name.." joined.")
+		irc:say("*** "..name.." joined.")
 	end
 end)
 
@@ -13,7 +13,7 @@ end)
 minetest.register_on_leaveplayer(function(player)
 	local name = player:get_player_name()
 	if irc.connected and irc.config.send_join_part then
-		irc:say("<TPS_Server> "..name.." left.")
+		irc:say("*** "..name.." left.")
 	end
 end)
 
